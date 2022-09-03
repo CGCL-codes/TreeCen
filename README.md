@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 
 # TreeCen:Building Tree Graph for Scalable Semantic Code Clone Detection
 TreeCen is a scalable tree-based code clone detector, which satisfies scalability while detecting semantic clones effectively.
-Given the source code, we first extract ASTs based on static analysis to transform them into simple graph representations (\ie tree graph) according to the node type, rather than traditional AST matching.
+Given the source code, we first extract ASTs based on static analysis to transform them into simple graph representations (i.e., tree graph) according to the node type, rather than traditional AST matching.
 Then we treat the tree graph as a network and adopt the centrality analysis to convert it into a fix-length vector.
 By this, the final vector is only 72-dimensional but contains complete structural information of the AST.
 Finally, these vectors are fed into the machine learning model to detect clones.
@@ -35,4 +35,20 @@ The output is centrality vectors containing concrete features about the AST.
 Given the centrality vector of a pair of codes, we concatenate them into one vector and then feed it into a machine learning model to train the detector after annotating the corresponding labels (clone or non-clone).
 
 
-The source code and dataset of TreeCen will be published here after the paper is accepted.
+
+# Step1: Get centrality matrices
+get_centmatrix.py: The file is used to get six centralities of each source code. 
+
+The input is a folder containing the source code files and the output is a Json file containing a dictionary. The content of the dictionary is the feature vector of the source code obtained by each centrality measures.
+
+# Step2: Classification
+classification.py: The file is used to train the clone detector and predict the clones using each of the seven machine learning algorithms. 
+
+Input:
+
+1. The Json file output by get_centmatrix.py.
+
+2. The CSV file with source code labels (clone or non-clone).
+
+Output is the prediction result.
+
