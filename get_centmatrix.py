@@ -13,7 +13,7 @@ import pandas as pd
 from  tqdm  import  tqdm 
 
 '''
-There are 53 node types and 14 token types, which are numbered for ease of analysis.
+There are 57 node types and 15 token types, which are numbered for ease of analysis.
 '''
 
 nodetypedict = {'MethodDeclaration': 0, 'Modifier': 1, 'FormalParameter': 2, 'ReferenceType': 3, 'BasicType': 4,
@@ -27,9 +27,12 @@ nodetypedict = {'MethodDeclaration': 0, 'Modifier': 1, 'FormalParameter': 2, 'Re
      'DoStatement': 39, 'InnerClassCreator': 40, 'ExplicitConstructorInvocation': 41, 'BreakStatement': 42,
      'ClassReference': 43, 'SuperConstructorInvocation': 44, 'ElementValuePair': 45, 'AssertStatement': 46,
      'ElementArrayValue': 47, 'TypeParameter': 48, 'FieldDeclaration': 49, 'SuperMemberReference': 50,
-     'ContinueStatement': 51, 'ClassDeclaration': 52}
-tockendict = {'Annotation': 53, 'BasicType': 54, 'Boolean': 55, 'DecimalFloatingPoint': 56, 'DecimalInteger': 57, 'HexInteger': 58,
-              'Identifier': 59, 'Keyword': 60, 'Modifier': 61, 'Null': 62, 'OctalInteger': 63, 'Operator': 64, 'Separator': 65, 'String': 66}
+     'ContinueStatement': 51, 'ClassDeclaration': 52, 'TryResource': 53, 'MethodReference': 54,
+     'LambdaExpression': 55, 'InferredFormalParameter': 56}
+tokendict = {'DecimalInteger': 57, 'HexInteger': 58, 'Identifier': 59, 'Keyword': 60, 'Modifier': 61, 'Null': 62,
+              'OctalInteger': 63, 'Operator': 64, 'Separator': 65, 'String': 66, 'Annotation': 67, 'BasicType': 68,
+              'Boolean': 69, 'DecimalFloatingPoint': 70, 'HexFloatingPoint': 71}
+
 
 
 '''
