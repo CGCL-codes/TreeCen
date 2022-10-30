@@ -35,14 +35,28 @@ The output is centrality vectors containing concrete features about the AST.
 Given the centrality vector of a pair of codes, we concatenate them into one vector and then feed it into a machine learning model to train the detector after annotating the corresponding labels (clone or non-clone).
 
 
+# Project Structure  
+```shell  
+TreeCen 
+|-- get_centmatrix.py  // implement the first three phases: AST Extraction, AST Abstraction, and Feature Extraction
+|-- classification.py  // implement the Classification phase  
+```
 
-# Step1: Get centrality matrices
-get_centmatrix.py: The file is used to get six centralities of each source code. 
+### Step1: Get centrality matrices
+get_centmatrix.py: The file is used to get six types of centrality measures of source code. 
+
+```
+python get_centmatrix.py
+```
 
 The input is a folder containing the source code files and the output is a Json file containing a dictionary. The content of the dictionary is the feature vector of the source code obtained by each centrality measures.
 
-# Step2: Classification
+### Step2: Classification
 classification.py: The file is used to train the clone detector and predict the clones using each of the seven machine learning algorithms. 
+
+```
+python classification.py
+```
 
 Input:
 
@@ -51,4 +65,18 @@ Input:
 2. The CSV file with source code labels (clone or non-clone).
 
 Output is the prediction result.
+
+# Publication
+Yutao Hu, Deqing Zou, Junru Peng, Yueming Wu, Junjie Shan, and Hai Jin. 2022. TreeCen: Building Tree Graph for Scalable Semantic Code Clone Detection. In 37th IEEE/ACM International Conference on Automated Software Engineering (ASE '22), October 10–14, 2022, Rochester, MI, USA. ACM, New York, NY, USA 12 Pages. https://doi.org/10.1145/3551349.3556927
+
+If you use our dataset or source code, please kindly cite our paper:
+
+```
+@INPROCEEDINGS{treecen,
+  author={Hu, Yutao, and Zou, Deqing and Peng, Junru and Wu, Yueming and Shan, Junjie and Jin, Hai},
+  booktitle={2022 IEEE/ACM 37th International Conference on Automated Software Engineering (ASE)}, 
+  title={TreeCen: Building Tree Graph for Scalable Semantic Code Clone Detection}, 
+  year={2022},
+  doi={10.1145/3551349.3556927}}
+```
 
